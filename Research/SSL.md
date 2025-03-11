@@ -7,6 +7,18 @@ SSL (Secure Socket Layer) là giao thức mã hóa Internet, đảm bảo tính 
 
 ## Cách chứng thựcthực
 Có 03 cách chứng thực SSL:
-* Chứng thực tên miền (DV SSL, Domain Validated) là chứng thực dựa vào tên miền.
-* Chứng thực tổ chức (OV SSL, Organization Validated) là chứng thực dựa trên sự tồn tại của tổ chức, doanh nghiệp.
-* Chứng thực mở rộng (EV SSL, Extenđe Validation)
+* Chứng thực tên miền (DV SSL, Domain Validated) là chứng thực dựa vào tên miền. Xác thực đơn giản, thông tin hiện thị trên SSL chỉ có tiên miền.
+* Chứng thực tổ chức (OV SSL, Organization Validated) là chứng thực được xác nhận dựa trên sự tồn tại của tổ chức, doanh nghiệp. Thông tin hiện thị trên SSL bao gồm tên tổ chức/doanh nghiệp, quốc gia, địa chỉ, tên miền.
+* Chứng thực mở rộng (EV SSL, Extenđe Validation) tương tự với với OV SSL, nhưng sẽ hiện thị thêm nhiều thông tin hơn và được đảm bảo có thể được sử dụng trên nhiều trình duyệt có tính bảo mật cao.
+
+## CSR file
+Certificate signing request (CSR) là file chứa các thông tin cần thiết để cơ quan cấp chứng thức (CA, Certìicate Authority) căn cứ và xác nhận cấp chứng thực SSL/TLS cho trang websiTLS.
+![CSR file sample](../Resource/CSR_file_sample.png)
+## PEM file
+Privacy Enchant Mail (PEM) là file được lưu dưới định dạng text và được mã hóa theo định dạng Base64. File lữu giữ một hoặc nhiều chứng thực và private key của các chứng thực. File được dùng nhiều trên hệ điều hành Unix/Linux.
+
+## PFX file
+Personal Information Exchange (PFX, PKCS#12) là file nhị phân, lưu giữ chứng thực X.509, private key và các chứng thực liên quan. PFX có thể được cài đặt mật khẩu để giới hạn khả năng có truy cập đến file. File được dùng phổ biến trên nền tảng Window.
+
+## Private key của SSL
+Private key là thành phần dữ liệu quan trọng trong mã hóa SSL, giúp giải mã dữ liệu được mã hóa bởi SSL/TTL, tạo Public key để mã hóa và xác thực dữ liệu.
