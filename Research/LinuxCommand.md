@@ -83,12 +83,22 @@ ssh -p 3022 phu@172.16.207.130
 
 ## scp
 
-chuyển thư mục
+Chuyển thư mục
 ```bash
 scp -P 3022 -r test phu@172.16.207.130:/home/phu
 ```
+Chuyển tệp tin
+
+```bash
+scp result.txt phu@172.16.207.130:/home/phu
+```
 
 ## rsync
+
+```bash
+rsync [options] {$source} {$destination}
+```
+
 
 ## cat
 
@@ -118,18 +128,115 @@ scp -P 3022 -r test phu@172.16.207.130:/home/phu
 
 ## tar/zip/unzip
 
+```bash
+tar -cvf archvie_name.tar files_or_directories #Tạo file nén .tar
+
+tar -czvf archvie_name.tar.gz files_or_directories #Tạo file nén .gz
+
+tar -xvf archive_name.tar -C /path/to/destination # giải nén file tar
+tar -xzvf archive_name.tar.gz -C /path/to/destination #giải nén file .tar.gz 
+```
+
+```bash
+zip archvie_name.zip files #Tạo file nén .zip với file.
+
+zip -r archvie_name.zip directories #Tạo file nén zip với folder
+
+unzip archive_name.zip -d /path/to/destination
+```
+
 ## mount/unmount
+
+```bash
+lsblk -f #Kiểm tra các disk được liên kết với hệ thống
+sudo mkfs.ext4/mkfs.vfat/mkfs.ntfs device_name #format disk nếu chưa format 
+# device_name là tên disk, ví dụ /dev/sda1
+sudo mount device_name mount_point
+
+#Gỡ thiết bị
+sudo unmount mount_point
+#hay
+sudo unomount device_name
+```
 
 ## Symbolic links, Hard Links
 
+* Symbolic link chỉ đường dẫn tới file hoặc thư mục.
+
+```bash
+ln -s path/of/target link_name
+```
+
+* Hard Link chỉ inode của vùng dữ liệu, khi hard link bị xóa đi điều đó không có nghĩa dữ liệu sẽ bị xoá đi, dữ liện vẫn tồn tại miễn vẫn còn một hard link khác đang được liên kết.
+
+
+```bash
+ln path/of/target link_name
+```
+
 ## ls
+
+```bash
+ls      # Liệt kê danh sách file/thư mục
+ls -l   # Liệt kê danh sách file/thự mục là thuộc tính của chúng
+ls -a   # Liệt kê danh sách file/thư mục kể cả đã ẩn
+ls -R   # Liệt kê danh sách file/thưc mục và thư mục con và tệp tin chứa trong thư mục
+
+```
+
 
 ## ps
 
+![result ps](../Resource/LinuxComand/PS/ps.png)
+
+* USER: process chạy dưới quyền user
+* PID: processuser
+* %CPU: tỷ lệ sử dụng CPU
+* %MEM: tỷ lệ sử dụng RAM
+* VSZ: Virtual memory size
+* RSS: Resident set size
+* TTY: Teletypewriter
+* STAT: trạng thái process
+* START: thời gian bắt đầu chạy
+* Time: thời gian chạy process.
+* CMD: lệnh chạy process.
+
 ## kill
+
+```bash
+kill -15 PID # (Mặc định) process được làm sạch trước khi đóng.
+kill -9 PID # process bắt buộc bị đóng ngay lập tức.
+```
 
 ## top
 
+![top cmd](../Resource/LinuxComand/top/top.png)
+
+* Load average: thể hiện mức tải trung bình của CPU; thông số được biểu biến với 3 giá trị lần lượt có ý nghĩa là mức tải trung bình trong 1 phút, 3 phút, 15 phút; hệ số nhỏ hơn số nhân CPU nghĩa là đang tải bình thường, bằng với số nhân CPU có nghĩa CPU đang được chạy hết công suất 100%, lớn hơn số nhân có nghĩa CPU đang bị quá tải.
+* us: user, tỷ lệ sử dụng của user.
+* sy: system, tỷe lệ sử dụng của hệ thống (dịch vụ chính của hệ điều hành)
+* ni: nice
+* id: idle, tỷ lệ nhàn rỗi của CPU.
+* wa: I/O wait, tỷ lệ chờ I/O.
+* hi: hardware interupt, tỷ lệ hardware can thiệp và chiếm dụng CPU. 
+* si: software interupt, tỷ lệ software can thiệp và chiếm dụng CPU.
+* st: steal time, tỷ lệ can thiệp và chiếm dụng CPU của hệ thống ảo hóa.
+* zombie process: process đã thực hiện xong nhiệm vụ (hoành thành vòng đời) nhưng vẫn còn tồn tại trong bảng ghi.
+* sleeping process: process hiện tại không hoạt động và đang đợi sự kiện để tiến hành chạy.
+
 ## free
 
+![free cmd](../Resource/LinuxComand/free/free_command.png)
+
+* Mem: Ram.
+* Swap: swap page.
+* Total: tổng dung lượng bộ nhớ (mặc định KB).
+* Used: Dung lượng đang được chiếm dụng.
+* Free: Dung lượng chưa được sử dụng
+* shared: phần dung lượng đang được chia sẻ với tmpfs.
+* buff/cache: phần dung lương đang được chiếm buffer và cache chiếm dụng.
+* available: phần dung lượng sẵn sàng được cấp phát cho các application.
+
 ## df
+
+![df cmd](../Resource/LinuxComand/df/df_command_result.png)
