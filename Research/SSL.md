@@ -8,13 +8,19 @@ SSL (Secure Socket Layer) là giao thức mã hóa Internet, đảm bảo tính 
 * SSL tiến hành xác thực qua các bước trong quy trình bắt tay để thiết lập kết nối giữa hai thiết bị nhằm để chắc chắn rằng cả hai biết đến nhau.
 * Để có thể đảm bảo tính toàn vẹn của dữ liệu, SSL đánh dấu các dữ liệu và xác thực đảm bảo nguyên vẹn.  
 
-## Cách chứng thựcthực
+## Các loại chứng thực
 
-Có 03 cách chứng thực SSL:
+Có 03 loại chứng thực SSL:
 
 * Chứng thực tên miền (DV SSL, Domain Validated) là chứng thực dựa vào tên miền. Xác thực đơn giản, thông tin hiện thị trên SSL chỉ có tiên miền.
 * Chứng thực tổ chức (OV SSL, Organization Validated) là chứng thực được xác nhận dựa trên sự tồn tại của tổ chức, doanh nghiệp. Thông tin hiện thị trên SSL bao gồm tên tổ chức/doanh nghiệp, quốc gia, địa chỉ, tên miền.
 * Chứng thực mở rộng (EV SSL, Extenđe Validation) tương tự với với OV SSL, nhưng sẽ hiện thị thêm nhiều thông tin hơn và được đảm bảo có thể được sử dụng trên nhiều trình duyệt có tính bảo mật cao.
+
+## Các cách chứng thực SSL 
+
+* Xác thực Email: CA gửi email tới địa chỉ đã được liệt kê trong WHOIS record để người dùng xác nhận quyền sở hữu.
+* Xác thực DNS: CA cấp một loại code chỉ cần thêm vào DNS record thì sẽ xác nhận domain.
+* Xác thực HTML: CA cấp cho một file chỉ cần upload trên website, thì có thể xác nhận.
 
 ## CSR file
 
