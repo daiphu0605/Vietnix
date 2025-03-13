@@ -126,6 +126,11 @@ rsync [options] {$source} {$destination}
 
 ## dig
 
+```bash
+
+```
+
+
 ## tar/zip/unzip
 
 ```bash
