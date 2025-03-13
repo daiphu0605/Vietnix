@@ -4,9 +4,13 @@
 
 ![Ping result](../Resource/LinuxComand/Ping/ping.png)
 
-ttl: Time to live chỉ số lượt hay hop của packet tồn tại trong network (Router, DDiscard) trước khi bị xóa.
+ttl: Time to live chỉ số hop còn lại trong gói tin phản hồi, ttl đi qua 1 router hay thiết bị tương tự thì sẽ giảm 1, khi giảm về 0 gói tin sẽ bị hủy.
 
-time: Round-Trip Time là thời gian mà gói tin icmp thực một vòng trong network.
+time: Round-Trip Time là thời gian từ lúc gói tin được gửi từ target về.
+
+## hping3
+
+![hping3 result](../Resource/LinuxComand/hping3/hping3_result.png)
 
 ## ssh
 
