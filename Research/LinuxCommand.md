@@ -192,7 +192,31 @@ traceroute gủi cùng lúc 03 gói tin có kích thước là 60 byte, lần l�
 ## netstat
 
 ```bash
+netstat [options]
+```
 
+options:
+
+* -a: all, hiện thị tất cả kết nối và listening port.
+* -t: tcp, chỉ hiẹn thị kết nối tcp
+* -u: udp, chỉ hiện thị kết nối udp
+* -l: listening, hiện thị port listening
+* -p: hiện thị PID và program name mỗi kết nối
+* -n: hiện thị địa chỉ và port number ở dạng numerical.
+* -r: hiện thị routing table.
+* -s: hiện thông số từng protocol.
+* -e: hiện thị thống sô network
+
+```bash
+netstat -l
+
+netstat -n 
+
+netstat -p
+
+netstat -t
+
+netstat -u
 ```
 
 ## sort
