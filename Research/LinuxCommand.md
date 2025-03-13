@@ -102,19 +102,98 @@ rsync [options] source destination # lệnh cơ bản
 rsync [options] source user@host:destination
 rsync [options] user@host:source destination
 ```
-options thường 
+
+options thường dùng
+
+* a: archive mode, giữ nguyên thuộc tính của file và thư mục con.
+* v: verbose
+* z: compres, nén data để transfer.
+* r: sao lưu thư mục và thư mục con.
+* n: dry-run, liệt kê các file sẽ được sao chép.
+* --delete: delete các file ở destination khi không tồn tại ở source.
+* P: progress, hiện thị tiến trình gửi dữ liệu.
+
+```bash
+rsync -av --link-dest=/backup/directory/previos_backup /source/directory/ /backup/directory/current_backup
+```
+
+* --link-dest: tạo hard link giúp bảo quản vệ dữ liệu trước đó không bị xóa bỏ hay thay đổi.
 
 ## cat
 
+```bash
+cat file_name
+```
+
+Nhập và file với EOF
+
+```bash
+cat > file_name <<EOF
+{Content}
+EOF
+```
+![example](../Resource/LinuxComand/cat/cat_EOF.png)
+
 ## echo
 
-## tail/head
+```bash
+echo "string" > file_name #Thêm string hay overwrite file
+
+echo "string" >> fine_name #Thêm string vào cuối file
+```
+
+## tail
+
+tail hiện thị dữ liệu ở cuối file mặc định là 10 dòng cuối
+
+```bash
+tail [options] file_name
+```
+options thường dùng:
+
+* -n {số k dòng}: hiện thị số k dòng cuối file
+* -n +{số thứ tự k}: hiện thị từ dòng thứ k đến cuối file.
+* -c {số k byte}: hiện thị k byte cuối file.
+* -f: hiện thị theo thời gian thực.
+
+* tailf giống như tail-f, tailf sẽ ngừng khi file bị xáo, tail -f thì không.
+
+## head
+
+head hiện thị dữ liệu ở đầu file, mặc định là 10 dòng đầu.
+
+```bash
+head [options] file_name
+```
+options thường dùng:
+
+* -n {số k dòng}: hiện thị số k dòng đầu file
+* -c {số k byte}: hiện thị k byte đầu file.
 
 ## sed
 
+```bash
+sed 's/old_word/new_word/g' file_name #Thay thế tất cả old_word thành new_word.
+
+sed 's/old_word/new_word/gi' file_name #Thay thế tất cả old_word thành new_word không phân biệt hoa hay thường.
+```
+
 ## tracroute/tracert
 
+traceroute hiện thị danh sách các bộ định tuyến mà gói tin đi qua.
+
+```bash
+traceroute [domain name | ip address]
+```
+![trace route result](../Resource/LinuxComand/traceroute/traceroute_result.png)
+
+traceroute gủi cùng lúc 03 gói tin có kích thước là 60 byte, lần lượt tới các hop, tối đa là 30 hop. thông tin hiện thị gồm: [lượt hop] [domain (ip)] [rrt]. Dấu hoa thị biểu hiện package loss. Hop cuối cùng là của thông tin đích.
+
 ## netstat
+
+```bash
+
+```
 
 ## sort
 
@@ -165,7 +244,7 @@ chmod [a|u/g/o][+|-|=][r/w/x] file name
 ### Octal
 
 ```bash
-chmod {u:1-7}{g:1-7}{o:1-7} file name
+chmod {u:0-7}{g:0-7}{o:0-7} file name
 ```
 
 ## chown
