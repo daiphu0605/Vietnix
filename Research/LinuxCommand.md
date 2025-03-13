@@ -219,6 +219,27 @@ netstat -t
 netstat -u
 ```
 
+## uniq
+
+```bash
+uniq [options] file_name
+```
+
+option:
+
+* -c: hiện số lần lặp của từng dòng ở đầu mỗi dòng
+* -d: chỉ hiện các dòng lặp lại. 
+* -u: chỉ hiện các dòng không lặp lại.
+* -i: bỏ qua các trường hợp in hoa và in thường.
+* -f N: bỏ quả N fields đầu tiền của mỗi dòng khi so sánh.
+* -s N: bỏ qua N ký tự đầu khi so sánh.
+
+```bash
+uniq -d file_name #Lọc ra các dòng lặp lại hơn 1 lần.
+
+uniq -dc file_name # Lọc và đếm số lần lặp của các dòng
+```
+
 ## sort
 
 ```bash
