@@ -96,9 +96,13 @@ scp result.txt phu@172.16.207.130:/home/phu
 ## rsync
 
 ```bash
-rsync [options] {$source} {$destination}
-```
+rsync [options] source destination # lệnh cơ bản
 
+# Lệnh đồng bộ với Remote host 
+rsync [options] source user@host:destination
+rsync [options] user@host:source destination
+```
+options thường 
 
 ## cat
 
@@ -114,20 +118,147 @@ rsync [options] {$source} {$destination}
 
 ## sort
 
+```bash
+sort [options] file_name
+```
+sort là câu lệnh sắp xếp các dòng dữ liệu trên file
+
+options thường dùng:
+
+* mặc định: sắp xếp theo thứ tự của bảng chữ cái.
+* r: sắp xếp theo thứ tự ngược lại.
+* n: sắp xếp theo thứ tự số.
+* k[số thứ tự của cột]: sắp xếp các dòng theo thứ tự sắp xếp của cột.
+
 ## wc
+
+```bash
+wc [options] file_name
+```
+
+options thường sử dụng:
+
+* l: đếm số dòng trong tệp.
+* w: đếm số từ trong tệp.
+* c: đếm số byte trongg tệp.
+* m: đếm số kỵ trự trong tệp.
+
+## chmod/
+
+### Symbolic
+
+```bash
+chmod [a|u/g/o][+|-|=][r/w/x] file name
+```
+
+* a: all
+* u: user
+* g: group
+* o: other
+* +: thêm
+* -: xóa
+* =: gán
+* r: quyền đọc
+* w: quyền ghi
+* x: quyền thực thi
+
+### Octal
+
+```bash
+chmod {u:1-7}{g:1-7}{o:1-7} file name
+```
+
+## chown
+
+```bash
+chown user:Group file
+chown -R user:Group path/of/directory
+```
+
+## chattr
+
+```bash
+chattr [-R] [+|-][atrribute] file_or_directory_name
+```
+attribute:
+
+* a: append only, chỉ cho phép thêm dữ liệu vào tệp, không thể ghi đè, phù hợp với tệp tin log.
+* c: compresed, tệp tự động nén bởi kernel khi dược lưu trữ trên disk, khi đọc sẽ tự động giải nén.
+* d: no dump, tệp bị loại trừ khỏi các bản sao được thực hiện bởi lệnh dump.
+* i: immuatable, tệp hoặc thư mục không thể bị thay đổi: không thể xóa, đổi tên, ghi, hoạc tạo hard link, biện pháp bảo vệ dữ liệu mạnh.
+* s: secure deletetion, khi tệp bị xóa, vũng lưu trữ của tệp sẽ được ghi đè bởi bit 0, ngăn chạn không thể phục hồi.
+* u: undeletion, cho phép khôi phục dữ liệu khi đã xóa.
+* A: no atime, thời gian truy cập (atime) của tệp sẽ không được cập nhập, có thể cải thiện hiệu suất đối với tệp có nhiều lượt truy cập.
+* j: data journaling, tất cả dưc liệu của tệp sẽ được ghi nhật ký (journaled).
+* e: extent format, tệp đang sử dụng định dạng extent để lưu trên disk.
+* t: no tail-merging, vô hiệu hóa việc hợp nhất đuôi (tail-merging).
+
+Kiểm tra thông tin thuộc tín của file 
+
+```bash
+lsattr [file_or_directory_name]
+```
 
 ## find
 
+```bash
+find path/to/search [options]
+
+find -type f -name "*.log" #Kiếm file có đuôi .log
+
+find -type d -name "*abc*" #Tìm kiếm folder có tên abc 
+
+find -type d -name "*abc*" -exec chmod -R 444 {} \; #Tìm kiếm folder abc và thay đổi quyền.
+```
+
 ## cp
+
+```bash
+cp source_file destination
+cp -r source/directory destination/directory
+```
 
 ## mv
 
+```bash
+
+mv source destination
+
+mv path/of/file path/of/destination
+
+mv path/of/directory path/of/destination
+
+mv old/name new/name
+
+```
+
 ## cut
+
+```bash
+cut [option] {file name}
+
+echo {string} | cut [option] #Xử lý chuỗi
+
+echo {string} | cut -c {số thứ tự của ký tự} #cut ký tự thứ n của chuỗi stringS
+
+echo {string} | cut -c {số thứ tự của ký tự}- #cut ký tự từ thứ n đến cuối string
+
+echo {string} | cut -c 1-{số thứ tự của ký tự} # cut từ ký tự đầu đến ký tự n 
+
+```
 
 ## dig
 
 ```bash
+dig {domain name: example.com} #Kiểm tra tên miền có đang được trỏ đúng ip, thông qua A record
 
+dig {domain name} {record name: CNAME, AAAA, MX, ....} #Kiểm tra bảng ghi của domain.
+
+dig @{dns ip} {domain name} #Kiểm tra thông tin domain name trên 1 bảng ghi A record trên DNS khác với mặc định
+
+dig -x 8.8.8.8 #Kiểm tra ip đang được gán trên domain nào
+
+dig +trace {domain name} #Giải thích quy trình phân giải tên miền
 ```
 
 
