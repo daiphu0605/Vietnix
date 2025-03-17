@@ -25,7 +25,7 @@ Nginx (engin x) là phần mềm mã nguồn mở, được dùng cho HTTP web s
 
 ### Model
 
-
+![Model](../Resource/ApacheAndNginx/apache-and-nginx.jpg.webp)
 
 ### Config
 
