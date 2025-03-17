@@ -33,12 +33,26 @@ Nginx (engin x) là phần mềm mã nguồn mở, được dùng cho HTTP web s
 
 ##### Config Apache cho website
 
-##### Cài đặt Port cho file Aache
+Sửa port listen của Apache sang port 8080 
 
-#### Config Nginx
+![conf/httpd.conf](../Resource/ApacheAndNginx/apache_conf.png)
 
-##### Cài đặt Reverse Proxy
+Cài đặt 02 trang web với doamin lần lượt là laravel.phu.vietnix.tech và wp.phu.vietnix.tech.
 
+![conf.d/laravel.phu.vietnix.conf](../Resource/ApacheAndNginx/laravel.phu.vietnix.tech.conf.png)
 
+![conf.d/wp.phu.vietnix.conf](../Resource/ApacheAndNginx/wp.phu.vietnix.tech.conf.png)
 
-#### Test Result
+#### Cấu hình Reverse Proxy trên Nginx
+
+Cấu hình file nginx conf, khai báo cache và xử lý path tới phpmyadmin 
+![nginx.conf](../Resource/ApacheAndNginx/nginx.conf.png)
+
+Cấu hình trỏ 02 tên miền.
+
+![conf.d/laravel.phu.vietnix.tech.conf](../Resource/ApacheAndNginx/laravel.phu.vietnix.tech.conf_nginx.png)
+
+![conf.d/wp.phu.vietnix.tech.conf](../Resource//ApacheAndNginx/wp.phu.vietnix.tech.conf_nginx.png)
+
+Cấu hình 01 trang web mặc định
+![conf.d/default.conf](../Resource/ApacheAndNginx/default.conf.png)
