@@ -50,9 +50,9 @@ Cấu hình file nginx conf, khai báo cache và xử lý path tới phpmyadmin
 
 Cấu hình trỏ 02 tên miền.
 
-![conf.d/laravel.phu.vietnix.tech.conf](../Resource/ApacheAndNginx/laravel.phu.vietnix.tech.conf_nginx.png)
+![conf.d/laravel.phu.vietnix.tech.conf](../Resource/ApacheAndNginx/laravel.phu.vietnix.tech.conf_nginx(2).png)
 
-![conf.d/wp.phu.vietnix.tech.conf](../Resource//ApacheAndNginx/wp.phu.vietnix.tech.conf_nginx.png)
+![conf.d/wp.phu.vietnix.tech.conf](../Resource//ApacheAndNginx/wp.phu.vietnix.tech.conf_nginx(2).png)
 
 Cấu hình 01 trang web mặc định
 ![conf.d/default.conf](../Resource/ApacheAndNginx/default.conf.png)
