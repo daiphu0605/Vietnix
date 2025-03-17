@@ -19,7 +19,7 @@ Tính năng chính của Apache:
 
 ## Nginx
 
-Nginx (engin x) là phần mềm mã nguồn mở, được dùng cho HTTP web server, reverse proxy, content cache, load balancer, TCP/UDP proxy và Mail Server.
+Nginx (engin x) là phần mềm mã nguồn mở, được dùng cho HTTP web server, reverse proxy, content cache, load balancer, TCP/UDP proxy và Mail Server vì khả năng vận hành tiêu tốn ít tài nguyên và xử lý được nhiều request cùng lúc (nhiều hơn 2 lần so với Apache).
 
 ## Reverse Poxy
 
