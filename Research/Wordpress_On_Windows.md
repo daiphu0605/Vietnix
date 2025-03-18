@@ -2,6 +2,8 @@
 
 ## Source Wordpress
 
+[Link tải source wordpress](https://vi.wordpress.org/latest-vi.zip)
+
 ## Source PHP74
 
 [Link tải source php 7.4](https://windows.php.net/downloads/releases/php-7.4.33-Win32-vc15-x64.zip)
