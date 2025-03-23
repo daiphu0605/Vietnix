@@ -348,6 +348,15 @@ cp -r source/directory destination/directory
 
 ## mv
 
+options
+* -i: hỏi trước khi ghi đè file trùng tên đã có trong thư mục đích.
+* -f: ghi đè file trùng tên trong thư mục đích.
+* -n: việc mv sẽ không diễn ra nếu đã có file trong thư mục đích.
+* -u: dựa vào thông tin thời gian chỉnh file gần nhất để quyết định có thực hiện ghi đè file hay không.
+* -v: verbose hiện thị thông tin chi tiết khi mv thực thi.
+* -b: đổi tên file trùng tên có trong thư mục đích.
+* -S: tùy chỉnh tên suffic cho thư mục đích 
+
 ```bash
 
 mv source destination
@@ -357,6 +366,8 @@ mv path/of/file path/of/destination
 mv path/of/directory path/of/destination
 
 mv old/name new/name
+
+mv -b -S .bak source path/of/destinition # Nếu source đã cótrong thư mục đích thì source cũ sẽ đổi tên thành source.bak
 
 ```
 
